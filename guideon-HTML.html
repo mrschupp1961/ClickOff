@@ -1,0 +1,218 @@
+<div class="topbar">
+  <div class="topbar-logo">ClickOff.</div>
+  <div class="topbar-badge">
+    <span class="topbar-badge-dot"></span>
+    <span class="topbar-badge-text">GUIDEON &middot; Resolution as a Service</span>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="left">
+    <div class="left-hero">
+      <div class="service-switch">
+        <div class="svc-avatar" style="background:#fff3d6;color:#f90;border:2px solid #f90;">A</div>
+        <div>
+          <div class="svc-name">Amazon Prime</div>
+          <div class="svc-status" style="color:#cc0000;">Cancelling now</div>
+        </div>
+        <span class="svc-arrow">&rarr;</span>
+        <div class="svc-avatar" style="background:#e8f3ff;color:#0071ce;border:2px solid #0071ce;">W</div>
+        <div>
+          <div class="svc-name">Walmart+</div>
+          <div class="svc-status" style="color:#0d6e4f;">Up next with GUIDEON ON</div>
+        </div>
+      </div>
+      <div class="left-title">Cancel Amazon Prime.</div>
+      <div class="left-sub">GUIDEON guides you through every screen in real time. Follow each step below, act on the right.</div>
+    </div>
+
+    <div class="steps" id="steps-area">
+      <div class="steps-label">GUIDEON &mdash; Step by step</div>
+      <div class="step active" id="s1" onclick="goStep(1)">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Go to Prime Membership page</div>
+          <div class="step-detail">Amazon's cancel page is open on the right. Sign in if prompted.</div>
+          <span class="step-tag green">&rarr; Act on the right panel now</span>
+        </div>
+        <div class="step-check">&#x2713;</div>
+      </div>
+      <div class="step" id="s2" onclick="goStep(2)">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Click "Manage membership"</div>
+          <div class="step-detail">Find and click Manage membership &rarr; select End membership from the dropdown.</div>
+          <span class="step-tag amber">&#x26A0; Ignore any discount offers</span>
+        </div>
+        <div class="step-check">&#x2713;</div>
+      </div>
+      <div class="step" id="s3" onclick="goStep(3)">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Decline every retention screen</div>
+          <div class="step-detail">Click "Continue to cancel" past every screen. Pause is not cancel.</div>
+          <span class="step-tag amber">&#x26A0; Billing resumes after pause</span>
+        </div>
+        <div class="step-check">&#x2713;</div>
+      </div>
+      <div class="step" id="s4" onclick="goStep(4)">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Click "End my benefits"</div>
+          <div class="step-detail">Confirm cancellation. Check your email for confirmation within 2 minutes.</div>
+          <span class="step-tag green">&#x2713; Access continues until billing period ends</span>
+        </div>
+        <div class="step-check">&#x2713;</div>
+      </div>
+    </div>
+
+    <div class="complete" id="complete">
+      <div class="complete-icon">&#x1F389;</div>
+      <div class="complete-title">You are free.</div>
+      <div class="complete-sub">Cancelled in 30 seconds. Confirmation email on its way. You just saved $180 this year.</div>
+      <button class="complete-btn" onclick="window.open('https://www.walmart.com/plus','_blank')">GUIDEON ON &mdash; Sign up for Walmart+ free trial &rarr;</button>
+    </div>
+
+    <div class="progress-area">
+      <div class="progress-row">
+        <span class="progress-lbl">GUIDEON progress</span>
+        <span class="progress-cnt" id="prog-cnt">Step 1 of 4</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:25%"></div></div>
+      <div class="step-btns">
+        <button class="btn-back" id="btn-back" onclick="prevStep()" disabled>&larr; Back</button>
+        <button class="btn-next" id="btn-next" onclick="nextStep()">Done, next step &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="right-waiting" id="right-waiting">
+      <div class="right-waiting-icon">&#x1F680;</div>
+      <div class="right-waiting-title">Ready to launch GUIDEON</div>
+      <div class="right-waiting-sub">Click below &mdash; Amazon's cancel page opens in a new window on this side of your screen while GUIDEON stays on the left.</div>
+      <button class="launch-big-btn" onclick="launchSplit()">
+        <span class="launch-pulse"></span>
+        Launch GUIDEON &mdash; Open Amazon &rarr;
+      </button>
+      <p style="margin-top:10px;font-size:11px;color:#888;">Or <a href="https://www.amazon.com/gp/primecentral" target="_blank" rel="noopener" style="color:#0d6e4f;font-weight:600;">open Amazon directly &rarr;</a></p>
+    </div>
+
+    <div class="right-launched" id="right-launched">
+      <div class="vendor-window-mock">
+        <div class="vw-bar">
+          <div class="vw-dots">
+            <div class="vw-dot" style="background:#ff5f57"></div>
+            <div class="vw-dot" style="background:#febc2e"></div>
+            <div class="vw-dot" style="background:#28c840"></div>
+          </div>
+          <div class="vw-url">amazon.com/gp/primecentral</div>
+        </div>
+        <div class="vw-body">
+          <div class="vw-amazon-nav">
+            <span class="vw-amazon-logo">amazon</span>
+            <div class="vw-amazon-nav-links">
+              <span class="vw-nav-link">Account</span>
+              <span class="vw-nav-link">Prime</span>
+            </div>
+          </div>
+          <div class="vw-card">
+            <div class="vw-card-title">Manage Your Prime Membership</div>
+            <div class="vw-card-desc" id="vw-step-hint">Amazon's page is open in a new window. Follow GUIDEON on the left &rarr;</div>
+            <div class="vw-card-btns">
+              <button class="vw-keep">Keep my Prime</button>
+              <button class="vw-manage" onclick="nextStep()">Manage membership &or;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="right-note">Amazon's real cancel page is open in the window on the right side of your screen. <strong>Follow the steps on the left.</strong></p>
+    </div>
+  </div>
+</div>
+
+<script>
+var currentStep = 1;
+var totalSteps = 4;
+var _amazonWin = null;
+
+var stepHints = [
+  "Amazon's page is open. Sign in and go to Prime Membership.",
+  'Click Manage membership then End membership. Ignore discount offers.',
+  'Click Continue to cancel past every screen. Never click Pause.',
+  'Click End my benefits. Check email for confirmation.'
+];
+
+function launchSplit() {
+  var w = Math.floor(screen.availWidth / 2);
+  var h = screen.availHeight;
+  var left = Math.floor(screen.availWidth / 2);
+
+  window.moveTo(0, 0);
+  window.resizeTo(w, h);
+
+  _amazonWin = window.open(
+    'https://www.amazon.com/gp/primecentral',
+    'amazon_cancel',
+    'width=' + w + ',height=' + h + ',left=' + left + ',top=0,toolbar=no,menubar=no,scrollbars=yes'
+  );
+
+  document.getElementById('right-waiting').style.display = 'none';
+  document.getElementById('right-launched').classList.add('show');
+  updateStep(1);
+}
+
+function updateStep(n) {
+  for (var i = 1; i <= totalSteps; i++) {
+    var s = document.getElementById('s' + i);
+    s.classList.remove('active');
+    if (i < n) s.classList.add('done');
+    else s.classList.remove('done');
+  }
+  if (n <= totalSteps) {
+    document.getElementById('s' + n).classList.add('active');
+    document.getElementById('s' + n).scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+  var pct = Math.round((n / totalSteps) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-cnt').textContent = n <= totalSteps ? 'Step ' + n + ' of ' + totalSteps : 'Complete!';
+  if (document.getElementById('vw-step-hint') && n <= totalSteps) {
+    document.getElementById('vw-step-hint').textContent = stepHints[n - 1];
+  }
+  document.getElementById('btn-back').disabled = n <= 1;
+  document.getElementById('btn-next').textContent = n >= totalSteps ? 'Done! Complete' : 'Done, next step';
+}
+
+function nextStep() {
+  if (currentStep < totalSteps) {
+    currentStep++;
+    updateStep(currentStep);
+  } else {
+    completeFlow();
+  }
+}
+
+function prevStep() {
+  if (currentStep > 1) {
+    currentStep--;
+    updateStep(currentStep);
+  }
+}
+
+function goStep(n) {
+  if (document.getElementById('right-launched').classList.contains('show')) {
+    currentStep = n;
+    updateStep(n);
+  }
+}
+
+function completeFlow() {
+  document.getElementById('steps-area').style.display = 'none';
+  document.getElementById('complete').classList.add('show');
+  document.getElementById('prog-fill').style.width = '100%';
+  document.getElementById('prog-cnt').textContent = 'Complete!';
+  document.getElementById('btn-next').disabled = true;
+  document.getElementById('btn-back').disabled = true;
+  try { if (_amazonWin && !_amazonWin.closed) _amazonWin.close(); } catch(e) {}
+}
+</script>
